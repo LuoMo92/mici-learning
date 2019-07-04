@@ -11,7 +11,7 @@ import pandas as pd
 #df = pd.read_csv('iris.data', header=None)
 # 显示前面行
 #df.head()
-data_dir = 'F:/2019-notebook/2017_2018_2/python_code/MTrain/MachineLearn/3_ML/1.4-1.5/'
+data_dir = 'E:/pycharm-workspace/mici-learning/1.2/'
 df = pd.read_csv(data_dir + 'iris.data', header=None)
 df.head()
 
@@ -76,6 +76,7 @@ for i in range(n):
 
     #x_train, x_test, y_train, y_test = train_test_split(
     #    x, y_i, test_size=0.3, stratify=y)
+    # stratify=y 分层采样
     x_train, x_test, y_train, y_test = train_test_split(
                         x, y_i, test_size=0.3, stratify=y)
 
