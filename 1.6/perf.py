@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 # 读入数据，为dataframe格式
-data_dir = 'E:/pycharm-workspace/mici-learning/1.6/'
+data_dir = 'E:/python-workspace/mici-learning/1.6/'
 df = pd.read_csv(data_dir+'iris.data', header=None)
 # 显示前面行和后面行
 df.head()

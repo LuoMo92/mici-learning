@@ -1,7 +1,7 @@
 import sys
 
 try:
-    data_dir = 'E:/pycharm-workspace/mici-learning/basic2/3_exeption/'
+    data_dir = 'E:/python-workspace/mici-learning/basic2/3_exeption/'
     # 把myfile.txt修改为myfile1.txt再测试
     f = open(data_dir + 'myfile1.txt')
     s = f.readline()

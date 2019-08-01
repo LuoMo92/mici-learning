@@ -4,7 +4,7 @@ from IPython.display import Image
 import pandas as pd
 
 
-data_dir = 'E:/pycharm-workspace/mici-learning/1.2/'
+data_dir = 'E:/python-workspace/mici-learning/1.4-1.5/'
 df = pd.read_csv(data_dir+'housing.data.txt',
                  header=None,
                  sep='\s+')  # '\s+'表示匹配任意的空白字符/空格
