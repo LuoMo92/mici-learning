@@ -146,14 +146,17 @@ times = 10
 # 样本数量
 y = y_i
 num = len(y)
+# 取标签的所有索引
 all_index = set(np.arange(num))
 
 scores = []
+# 创建逻辑回归模型
 lr = LogisticRegression(C=100.0, random_state=1)
 
 # In[]
 for i in range(times):
     print()
+    # 自助采样
     train_index = BootStrap(num)
     print(train_index)
 
@@ -173,7 +176,9 @@ for i in range(times):
     x_train, y_train = GetDataByIndex(x, y, train_index)
     x_test, y_test = GetDataByIndex(x, y, test_index)
 
+    # 训练
     lr.fit(x_train, y_train)
+    # 打分
     score = lr.score(x_test, y_test)
     scores.append(score)
     print('次数: %2d, 准确率: %.3f' % (i+1, score))
