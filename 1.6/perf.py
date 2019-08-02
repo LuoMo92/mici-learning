@@ -6,11 +6,11 @@ import pandas as pd
 # 读入数据，为dataframe格式
 data_dir = 'E:/python-workspace/mici-learning/1.6/'
 df = pd.read_csv(data_dir+'iris.data', header=None)
-# 显示前面行和后面行
+# 显示前5行
 df.head()
 
 # In[]
-# 取dataframe中的数据到数组array，展示二分类性能度量，取后100个数据
+# 取dataframe中的数据到数组array，展示二分类性能度量，取最后100个数据
 y_org = df.iloc[-100:, 4].values 
 # 长度和类别
 len(y_org), np.unique(y_org)
@@ -69,6 +69,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 
 print('\n\n交叉验证\n')
 y = y_i
+# 10倍交叉验证
 kfold = StratifiedKFold(n_splits=10, random_state=1).split(x, y)
 
 scores = []
@@ -78,8 +79,9 @@ for k, (train, test) in enumerate(kfold):
     lr.fit(x[train], y[train])
     print('Fold: %2d' % (k+1))
     # 注意！！在python中，认为1是positive，所以关注的类，要赋值为1
-    # 混淆矩阵
+    # 对测试集进行预测
     y_pred = lr.predict(x[test])
+    # 混淆矩阵
     confmat = confusion_matrix(y_true=y[test], y_pred=y_pred)
     print(confmat)
     print()
@@ -107,7 +109,7 @@ for k, (train, test) in enumerate(kfold):
 
     # 精确度
     print('Precision: %.3f' % precision_score(y_true=y[test], y_pred=y_pred))
-    # 召回率/敏感度/真正率/真阳性率
+    # 召回率/敏感度/真正率/真阳性率-相同含义
     print('Recall: %.3f' % recall_score(y_true=y[test], y_pred=y_pred))
     # F1-score
     print('F1: %.3f' % f1_score(y_true=y[test], y_pred=y_pred))
@@ -123,9 +125,8 @@ for k, (train, test) in enumerate(kfold):
     fp = confmat[0,1]
     spec = float(tn)/(float(tn)+float(fp))
     print('Spec: %.3f' % spec)
-
-    print('\n')
     
+    print('\n')
 
 
 #%%
