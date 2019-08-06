@@ -8,8 +8,6 @@ df.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS',
               'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
 df.head()
 
-#%%
-
 # In[]
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -21,13 +19,12 @@ plt.tight_layout()
 # plt.savefig('img.png', dpi=300)
 plt.show()
 
-
-#%%
-
 # In[]
 import numpy as np
 
+# 皮尔逊积矩相关系数--用来衡量两两特征间的线性依赖关系
 cm = np.corrcoef(df[cols].values.T)
+print(cm)
 sns.set(font_scale=1.5) #设置字体大小
 hm = sns.heatmap(cm,
                  cbar=True,
