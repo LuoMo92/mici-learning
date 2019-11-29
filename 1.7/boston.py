@@ -1,6 +1,6 @@
 # In[]
 import pandas as pd
-df = pd.read_csv('E:/python-workspace/mici-learning/1.4-1.5/housing.data.txt',
+df = pd.read_csv('D:/idea_workspace/mici-learning/1.4-1.5/housing.data.txt',
                  header=None,
                  sep='\s+')   # '\s+'表示匹配任意多个空白字符/空格
 df.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 
